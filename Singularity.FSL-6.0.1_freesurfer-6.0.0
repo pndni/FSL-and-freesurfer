@@ -27,6 +27,7 @@ Include: yum
 %appenv fsl
     export FSLDIR=/opt/fsl
     source $FSLDIR/etc/fslconf/fsl.sh
+    export PATH=$FSLDIR/bin:$PATH
 
 %appenv all
     source $APPENV_freesurfer
