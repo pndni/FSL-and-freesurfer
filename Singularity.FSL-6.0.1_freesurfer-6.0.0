@@ -21,6 +21,12 @@ Include: yum
     rm /root/fslinstaller.py
 
 %appenv freesurfer
+    if [ -n "$FSLDIR" ]
+    then
+	>&2 echo "freesurfer must be loaded before fsl"
+	exit 1
+    fi
+    export NO_FSFAST=1
     export FREESURFER_HOME=/opt/freesurfer
     source $FREESURFER_HOME/SetUpFreeSurfer.sh
 
@@ -30,5 +36,5 @@ Include: yum
     export PATH=$FSLDIR/bin:$PATH
 
 %appenv all
-    source $APPENV_freesurfer
-    source $APPENV_fsl
+    source $SCIF_APPENV_freesurfer
+    source $SCIF_APPENV_fsl
