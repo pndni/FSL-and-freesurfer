@@ -5,7 +5,7 @@ From: pndni/centos7-base:1.0.0
 #Include: yum
 
 %post
-    yum install -y wget file bc tar gzip libquadmath which bzip2 libgomp tcsh
+    yum install -y wget file bc tar gzip libquadmath which bzip2 libgomp tcsh perl
 
     ##############
     # freesurfer #
