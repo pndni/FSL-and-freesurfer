@@ -31,6 +31,20 @@ From: pndni/centos7-base:1.0.0
     export FREESURFER_HOME=/opt/freesurfer
     source $FREESURFER_HOME/SetUpFreeSurfer.sh
 
+%applabels freesurfer
+    License https://surfer.nmr.mgh.harvard.edu/fswiki/FreeSurferSoftwareLicense
+    URL https://surfer.nmr.mgh.harvard.edu/
+    Version 6.0.0
+
+%apphelp freesurfer
+    Using freesurfer requires a freesurfer license file.
+    A license file may be obtained from
+    https://surfer.nmr.mgh.harvard.edu/registration.html
+    Ensure that the license file is visible from the container,
+    and set the environment variable FS_LICENSE to point to it
+    (or copy the file to /opt/freesurfer/license.txt from
+    inside the container)
+
 %appenv fsl
     export FSLDIR=/opt/fsl
     source $FSLDIR/etc/fslconf/fsl.sh
@@ -39,3 +53,29 @@ From: pndni/centos7-base:1.0.0
 %appenv all
     source $SCIF_APPENV_freesurfer
     source $SCIF_APPENV_fsl
+
+%applabels fsl
+    License https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+    URL https://fsl.fmrib.ox.ac.uk/fsl/fslwiki
+    Version 6.0.1
+
+%apphelp fsl
+    Before using FSL you must agree to the license at
+    https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+
+%labels
+    Maintainer "Steven Tilley"
+
+%apphelp all
+    Set up environment for freesurfer and FSL
+
+    Using freesurfer requires a freesurfer license file.
+    A license file may be obtained from
+    https://surfer.nmr.mgh.harvard.edu/registration.html
+    Ensure that the license file is visible from the container,
+    and set the environment variable FS_LICENSE to point to it
+    (or copy the file to /opt/freesurfer/license.txt from
+    inside the container)
+
+    By using FSL you agree to the license at
+    https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
