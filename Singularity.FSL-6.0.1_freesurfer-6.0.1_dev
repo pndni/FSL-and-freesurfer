@@ -1,16 +1,15 @@
 Bootstrap: shub
-From: pndni/centos7-base:1.0.0
+From: pndni/centos7-base:1.2.0
 #OSVersion: 7
 #MirrorURL: http://mirror.centos.org/centos-%{OSVERSION}/%{OSVERSION}/os/x86_64/
 #Include: yum
 
 %post
-    yum install -y wget file bc tar gzip libquadmath which bzip2 libgomp tcsh perl
 
     ##############
     # freesurfer #
     ##############
-    wget --no-verbose --output-document=/root/freesurfer.tar.gz https://surfer.nmr.mgh.harvard.edu/pub/dist/freesurfer/6.0.0/freesurfer-Linux-centos6_x86_64-stable-pub-v6.0.0.tar.gz
+    wget --no-verbose --output-document=/root/freesurfer.tar.gz https://surfer.nmr.mgh.harvard.edu/pub/dist/freesurfer/6.0.1/freesurfer-Linux-centos6_x86_64-stable-pub-v6.0.1.tar.gz
     tar -C /opt -xzvf /root/freesurfer.tar.gz
     rm /root/freesurfer.tar.gz
 
@@ -34,7 +33,7 @@ From: pndni/centos7-base:1.0.0
 %applabels freesurfer
     License https://surfer.nmr.mgh.harvard.edu/fswiki/FreeSurferSoftwareLicense
     URL https://surfer.nmr.mgh.harvard.edu/
-    Version 6.0.0
+    Version 6.0.1
 
 %apphelp freesurfer
     Using freesurfer requires a freesurfer license file.
@@ -64,7 +63,8 @@ From: pndni/centos7-base:1.0.0
     https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
 
 %labels
-    Maintainer "Steven Tilley"
+    Maintainer Steven Tilley
+    Version dev
 
 %apphelp all
     Set up environment for freesurfer and FSL
@@ -79,3 +79,4 @@ From: pndni/centos7-base:1.0.0
 
     By using FSL you agree to the license at
     https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/Licence
+
